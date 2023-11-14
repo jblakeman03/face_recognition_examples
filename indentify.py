@@ -24,7 +24,7 @@ known_face_names = [
 ]
 
 # Load test image to find faces in
-test_image = face_recognition.load_image_file('./img/groups/bill-steve-elon.jpg')
+test_image = face_recognition.load_image_file('img\\unknown\\barack-obama-12782369-1-402.jpg')
 
 # Find faces in test image
 face_locations = face_recognition.face_locations(test_image)
@@ -51,7 +51,8 @@ for(top, right, bottom, left), face_encoding in zip(face_locations, face_encodin
   draw.rectangle(((left, top), (right, bottom)), outline=(255,255,0))
 
   # Draw label
-  text_width, text_height = draw.textsize(name)
+  text_width = draw.textlength(name)
+  text_height = 16
   draw.rectangle(((left,bottom - text_height - 10), (right, bottom)), fill=(255,255,0), outline=(255,255,0))
   draw.text((left + 6, bottom - text_height - 5), name, fill=(0,0,0))
 
